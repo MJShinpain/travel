@@ -8,32 +8,10 @@
       travel experience.
     </p>
 
-    <h2>🚀 Current & Upcoming Apps</h2>
-    <p>We are actively working on multiple applications to assist travelers.</p>
-
-    <h3>✅ Available App</h3>
-    <ul>
-      <li>
-        <strong>Hyatt Globalist Mattress Run</strong> - A tool to evaluate if
-        Mattress run is worth.
-      </li>
-    </ul>
-
-    <h3>🛠 Upcoming Apps</h3>
-    <ul>
-      <li>
-        📍 Destination Planner - A tool to organize your travel itineraries.
-      </li>
-      <li>✈️ Flight Price Tracker - Get alerts on price drops for flights.</li>
-      <li>
-        🏨 Hotel Reward Optimizer - Maximize hotel loyalty program benefits.
-      </li>
-    </ul>
-
     <h2>👨‍💻 About the Developer</h2>
     <p>
-      This project is built using Vue.js and is continuously being improved. If
-      you have any suggestions or feature requests, feel free to reach out!
+      This project was built by a non-programmer. If you find any errors, please
+      let me know by email
     </p>
 
     <h2>📩 Contact</h2>

@@ -1,28 +1,25 @@
 <template>
+  <div class="header-container">
+    <h1>Mattress run Calculator</h1>
+    <router-link to="/hyatt-mattress-run" class="how-to-button"
+      >사용법?</router-link
+    >
+  </div>
   <div>
     <!-- === 올해 매트리스런 설정 === -->
-    <h3>올해 매트리스런 설정</h3>
+    <div class="header-with-button">
+      <h3>올해 매트리스런</h3>
+    </div>
     <div class="form-row">
       <div class="label-group">
         <label>
-          <span>올해 실제 숙박(박):</span>
+          <span>올해 실제 숙박(박)</span>
           <input type="number" v-model.number="thisYearOrganicNights" />
         </label>
       </div>
       <div class="label-group">
         <label>
-          <span>Globalist 기준:</span>
-          <input
-            type="number"
-            :value="requiredNightsForGlobalist"
-            readonly
-            class="readonly"
-          />
-        </label>
-      </div>
-      <div class="label-group">
-        <label>
-          <span>매트리스런 1박 비용($):</span>
+          <span>매트리스런 1박($)</span>
           <input
             type="number"
             step="0.01"
@@ -30,25 +27,10 @@
           />
         </label>
       </div>
-    </div>
-
-    <!-- === 내년 숙박 설정 === -->
-    <h3>내년 숙박 설정</h3>
-    <div class="form-row">
       <div class="label-group">
         <label>
-          <span>내년 실제 숙박(박):</span>
+          <span>내년 실제 숙박</span>
           <input type="number" v-model.number="nextYearOrganicNights" />
-        </label>
-      </div>
-      <div class="label-group">
-        <label>
-          <span>Globalist 1박 추가 가치($):</span>
-          <input
-            type="number"
-            step="0.01"
-            v-model.number="nextYearGlobalistPerNightValue"
-          />
         </label>
       </div>
     </div>
@@ -58,17 +40,7 @@
     <div class="form-row">
       <div class="label-group">
         <label>
-          <span>BaseP/$:</span>
-          <input
-            type="number"
-            step="0.01"
-            v-model.number="basePointsPerDollar"
-          />
-        </label>
-      </div>
-      <div class="label-group">
-        <label>
-          <span>보너스(%):</span>
+          <span>보너스(%) (티어에 따라)</span>
           <input
             type="number"
             step="0.01"
@@ -78,7 +50,7 @@
       </div>
       <div class="label-group">
         <label>
-          <span>1P($):</span>
+          <span>1포인트 가치($):</span>
           <input
             type="number"
             step="0.0001"
@@ -93,34 +65,44 @@
     <div class="form-row">
       <div class="label-group">
         <label>
-          <span>Cat1–4 FN($):</span>
-          <input type="number" step="0.01" v-model.number="cat14Value" />
+          <span>Globalist 1박당($)</span>
+          <input
+            type="number"
+            step="1"
+            v-model.number="nextYearGlobalistPerNightValue"
+          />
         </label>
       </div>
       <div class="label-group">
         <label>
-          <span>Cat1–7 FN($):</span>
-          <input type="number" step="0.01" v-model.number="cat17Value" />
+          <span>Cat1–4 FN($)</span>
+          <input type="number" step="1" v-model.number="cat14Value" />
+        </label>
+      </div>
+      <div class="label-group">
+        <label>
+          <span>Cat1–7 FN($)</span>
+          <input type="number" step="1" v-model.number="cat17Value" />
         </label>
       </div>
     </div>
     <div class="form-row">
       <div class="label-group">
         <label>
-          <span>GOH($):</span>
-          <input type="number" step="0.01" v-model.number="gohValue" />
+          <span>GOH($)</span>
+          <input type="number" step="1" v-model.number="gohValue" />
         </label>
       </div>
       <div class="label-group">
         <label>
-          <span>Club Access Award($):</span>
-          <input type="number" step="0.01" v-model.number="clubAccessValue" />
+          <span>Club Access($)</span>
+          <input type="number" step="1" v-model.number="clubAccessValue" />
         </label>
       </div>
       <div class="label-group">
         <label>
-          <span>Suite Upgrade Award($):</span>
-          <input type="number" step="0.01" v-model.number="suiteUpgradeValue" />
+          <span>Suite Upgrade($)</span>
+          <input type="number" step="1" v-model.number="suiteUpgradeValue" />
         </label>
       </div>
     </div>
@@ -128,30 +110,35 @@
 
   <!-- === 마일스톤 선택(30/40/50박) === -->
   <h3>마일스톤 선택(30/40/50박)</h3>
-  <div>
-    <label>
-      30박:
-      <select v-model="milestone30Choice">
-        <option value="2K Points">2K Points</option>
-        <option value="2 Club Access">2 Club Access</option>
-      </select>
-    </label>
+  <div class="form-row">
+    <div class="label-group">
+      <label>
+        30박:
+        <select class="milestone-select" v-model="milestone30Choice">
+          <option value="2K Points">2K Points</option>
+          <option value="2 Club Access">2 Club Access</option>
+        </select>
+      </label>
+    </div>
+    <div class="label-group">
+      <label>
+        40박:
+        <select class="milestone-select" v-model="milestone40Choice">
+          <option value="5K Points">5K Points</option>
+          <option value="1 Suite Upgrade">1 Suite Upgrade</option>
+        </select>
+      </label>
+    </div>
 
-    <label>
-      40박:
-      <select v-model="milestone40Choice">
-        <option value="5K Points">5K Points</option>
-        <option value="1 Suite Upgrade">1 Suite Upgrade</option>
-      </select>
-    </label>
-
-    <label>
-      50박:
-      <select v-model="milestone50Choice">
-        <option value="5K Points">5K Points</option>
-        <option value="2 Suite Upgrade">2 Suite Upgrade</option>
-      </select>
-    </label>
+    <div class="label-group">
+      <label>
+        50박:
+        <select class="milestone-select" v-model="milestone50Choice">
+          <option value="5K Points">5K Points</option>
+          <option value="2 Suite Upgrade">2 Suite Upgrade</option>
+        </select>
+      </label>
+    </div>
   </div>
 
   <!-- === 결과 출력 === -->
@@ -184,12 +171,11 @@
     </div>
 
     <div>
-      <p></p>
-      <strong>
+      <p>
         매트리스런 비용:${{
           scenarioResult.Scenario_B.Mattress_Run_Cost.toFixed(0)
         }}
-      </strong>
+      </p>
     </div>
 
     <div>
@@ -367,9 +353,10 @@ export default {
       }
 
       // (5) 매트리스런 지불금에 대한 포인트 적립 가치
-      // = 달러당 base_points_per_dollar × (1 + 보너스%) → (포인트 × point_value)
+      // = 달러당 base_points_per_dollar *0.8(세금 제외) × (1 + 보너스%) → (포인트 × point_value)
       const scenarioB_Points =
         scenarioB_MattressRunCost *
+        0.8 *
         basePointsPerDollar *
         (1 + globalistBonusPercent / 100)
 
@@ -418,8 +405,28 @@ body {
 /* Main container */
 div {
   max-width: 800px;
-  margin: 1rem auto;
+  margin: 0.1rem auto;
   padding: 0 1rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.how-to-button {
+  padding: 0.5rem 1rem;
+  background-color: #4299e1;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.how-to-button:hover {
+  background-color: #2b6cb0;
 }
 
 /* Section headers */
@@ -427,7 +434,7 @@ h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: #2d3748;
-  margin: 2rem 0 1rem;
+  margin: 0.5rem 0 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #e2e8f0;
 }
@@ -436,13 +443,13 @@ h3 {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .label-group {
   flex: 1;
-  min-width: 200px;
+  min-width: 100px;
 }
 
 /* Input container */
@@ -470,8 +477,15 @@ select {
   border-radius: 0.5rem;
   font-size: 0.875rem;
   transition: all 0.2s;
-  width: 25%;
+  width: 20%;
   background: white;
+}
+
+/* milestone-selection 클래스를 가진 div의 폭을 조정 */
+.milestone-select {
+  border-radius: 0.25rem; /* 예시: 둥근 모서리 */
+  padding: 0.5rem; /* 예시: 안쪽 여백 */
+  width: 70%; /* 예시: 폭 조정 */
 }
 
 input:focus,
@@ -518,7 +532,7 @@ select {
 /* Results section */
 div[v-if='scenarioResult'] {
   background: linear-gradient(to bottom right, #2b6cb0, #4299e1);
-  color: white;
+  color: rgb(192, 65, 65);
   padding: 2rem;
   border-radius: 0.75rem;
   margin-top: 2rem;
