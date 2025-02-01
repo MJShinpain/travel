@@ -140,10 +140,11 @@
       </label>
     </div>
   </div>
+  <br />
 
   <!-- === 결과 출력 === -->
   <div v-if="scenarioResult">
-    <h2>결과</h2>
+    <h3>결과</h3>
     <div>
       <strong></strong>
       <p>매트리스런 박 수: {{ scenarioResult.Scenario_B.Nights_Needed }}박</p>
@@ -185,6 +186,7 @@
       >
     </div>
   </div>
+  <br />
 </template>
 
 <script>
@@ -441,15 +443,19 @@ h3 {
 
 /* Form sections */
 .form-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    200px
+  ); /* 각 항목의 너비를 200px로 고정 */
   gap: 0.5rem;
-  margin-bottom: 0.2rem;
+  justify-content: start;
 }
 
 .label-group {
   flex: 1;
   min-width: 100px;
+  text-align: left;
 }
 
 /* Input container */
@@ -477,7 +483,7 @@ select {
   border-radius: 0.5rem;
   font-size: 0.875rem;
   transition: all 0.2s;
-  width: 20%;
+  width: 30%;
   background: white;
 }
 
@@ -485,7 +491,7 @@ select {
 .milestone-select {
   border-radius: 0.25rem; /* 예시: 둥근 모서리 */
   padding: 0.5rem; /* 예시: 안쪽 여백 */
-  width: 70%; /* 예시: 폭 조정 */
+  width: 120%; /* 예시: 폭 조정 */
 }
 
 input:focus,
