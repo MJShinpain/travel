@@ -1,9 +1,10 @@
 <template>
   <div class="header-container">
     <h1>Mattress run Calculator</h1>
-    <router-link to="/hyatt-mattress-run" class="how-to-button"
-      >사용법?</router-link
-    >
+    <router-link to="/hyatt-mattress-run" class="how-to-button">
+      <span class="desktop-text">사용법?</span>
+      <span class="mobile-text">사용법?</span>
+    </router-link>
   </div>
   <div>
     <!-- === 올해 매트리스런 설정 === -->
@@ -163,21 +164,22 @@
           scenarioResult.Scenario_B.Next_Year_Benefit_Globalist.toFixed(0)
         }}
       </p>
-      <br />
       <strong
         >총 혜택: ${{
           scenarioResult.Scenario_B.Total_Value_Next_Year.toFixed(0)
         }}</strong
       >
     </div>
+    <br />
 
     <div>
-      <p>
+      <strong>
         매트리스런 비용:${{
           scenarioResult.Scenario_B.Mattress_Run_Cost.toFixed(0)
         }}
-      </p>
+      </strong>
     </div>
+    <br />
 
     <div>
       <strong
@@ -206,7 +208,7 @@ export default {
       // === 포인트 적립 ===
       basePointsPerDollar: 5.0,
       globalistBonusPercent: 30.0,
-      pointValuePerPoint: 0.02,
+      pointValuePerPoint: 0.017,
 
       // === 마일스톤 아이템(1개) 가치 ===
       cat14Value: 150.0,
@@ -424,7 +426,15 @@ div {
   text-decoration: none;
   border-radius: 0.25rem;
   font-size: 0.875rem;
+  white-space: nowrap;
   transition: background-color 0.2s;
+}
+
+.how-to-button .mobile-text {
+  display: none;
+  white-space: nowrap;
+  font-size: 1.2rem; /* 기본 폰트 크기보다 크게 설정 */
+  padding: 1rem 0.5rem;
 }
 
 .how-to-button:hover {
@@ -576,6 +586,13 @@ div[v-if='scenarioResult'] strong {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
+  .how-to-button .desktop-text {
+    display: none;
+  }
+  .how-to-button .mobile-text {
+    display: inline;
+    white-space: nowrap; /* 모바일 텍스트에도 적용 */
+  }
   .input-row {
     grid-template-columns: 1fr;
   }
@@ -583,6 +600,7 @@ div[v-if='scenarioResult'] strong {
   select {
     font-size: 1rem;
     padding: 0.75rem;
+    width: 100%;
   }
 }
 </style>
