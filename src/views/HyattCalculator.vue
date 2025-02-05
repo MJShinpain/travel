@@ -215,7 +215,7 @@ export default {
       cat17Value: 300.0,
       gohValue: 60.0,
       clubAccessValue: 20.0,
-      suiteUpgradeValue: 100.0,
+      suiteUpgradeValue: 60.0,
 
       // === 마일스톤 선택(30/40/50박) ===
       milestone30Choice: '2K Points',
