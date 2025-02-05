@@ -213,7 +213,7 @@ export default {
       // === 마일스톤 아이템(1개) 가치 ===
       cat14Value: 150.0,
       cat17Value: 300.0,
-      gohValue: 100.0,
+      gohValue: 60.0,
       clubAccessValue: 20.0,
       suiteUpgradeValue: 100.0,
 
