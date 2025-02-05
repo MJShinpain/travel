@@ -189,6 +189,19 @@
     </div>
   </div>
   <br />
+  <!-- 결과 출력 영역 끝난 후 추가 -->
+  <div class="inquiry-section" style="text-align: center; margin-top: 2rem">
+    <p>
+      문의사항이 있으신가요? <br />
+      <a
+        href="https://null0s.tistory.com/372"
+        target="_blank"
+        style="color: #4299e1; font-weight: bold"
+      >
+        여기에 댓글 남겨주세요
+      </a>
+    </p>
+  </div>
 </template>
 
 <script>
