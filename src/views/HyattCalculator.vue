@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <h1>Mattress run Calculator</h1>
+    <h1>Hyatt Mattress run Calculator</h1>
     <router-link to="/hyatt-mattress-run" class="how-to-button">
       <span class="desktop-text">사용법?</span>
       <span class="mobile-text">사용법?</span>
